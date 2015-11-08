@@ -1,6 +1,7 @@
+type: module
 name: Login Redirect
 description: Provides a method to redirect according to an URL-defined parameter after user logs in.
-core: 8.x
 package: User
-type: module
+configure: login_redirect.admin
+core: 8.x
 version: 1.0
