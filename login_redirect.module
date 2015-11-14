@@ -23,7 +23,7 @@ function login_redirect_user_login($account) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function login_redirect_form_user_login_form_alter(&$form, FormStateInterface $form_state) {
+// function login_redirect_form_user_login_form_alter(&$form, FormStateInterface $form_state) {
   // It looks like Drupal rebuilds the form post-submission which overwrites
   // the query parameter set first time. We check the $form_state to see if
   // the query parameter is already set.
@@ -50,9 +50,9 @@ function login_redirect_form_user_login_form_alter(&$form, FormStateInterface $f
   //     }
   //   }
   // }
-  $form['#submit'][] = 'login_redirect_user_login_submit';
+//   $form['#submit'][] = 'login_redirect_user_login_submit';
 
-}
+// }
 
 /**
  * Send the user to another page if set in options.
