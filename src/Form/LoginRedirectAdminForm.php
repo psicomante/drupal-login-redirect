@@ -35,14 +35,14 @@ class LoginRedirectAdminForm extends ConfigFormBase {
       '#type' => 'radios',
       '#options' => array(0 => $this->t('Disabled'), 1 => $this->t('Enabled')),
       '#title' => $this->t('Module status'),
-      '#default_value' => $config->get('login_redirect.status'),
+      '#default_value' => $config->get('status'),
       '#description' => $this->t('Should the module be enabled?'),
     );
 
     $form['destination'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Destination'),
-      '#default_value' => $config->get('login_redirect.destination'),
+      '#default_value' => $config->get('destination'),
       '#maxlength' => 255,
       '#description' => $this->t('Enter user defined query parameter name same as we have q in drupal core. For example if the parameter name is set to "destination", then you would visit user/login&destination=(redirect destination).'),
     );
@@ -62,8 +62,8 @@ class LoginRedirectAdminForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = $this->config('login_redirect.settings');
-    $config->set('login_redirect.status', $form_state->getValue('status'));
-    $config->set('login_redirect.destination', $form_state->getValue('destination'));
+    $config->set('status', $form_state->getValue('status'));
+    $config->set('destination', $form_state->getValue('destination'));
     $config->save();
     return parent::submitForm($form, $form_state);
   }
